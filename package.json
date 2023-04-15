@@ -1,0 +1,32 @@
+{
+  "name": "01_inception",
+  "version": "1.0.0",
+  "description": "Namaste React",
+  
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/alpanakushwaha/Namaste-React.git"
+  },
+  "author": "Alpana Kushwaha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alpanakushwaha/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/alpanakushwaha/Namaste-React#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
