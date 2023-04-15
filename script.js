@@ -4,10 +4,11 @@ Created a server
 HMR -Hot module Replacement
 File Watcher algorithm-C++
 Bundling
-Differential Bundling=> <script type="module">
+Differential Bundling=> supports older browser 
 MINIFY
 Cleaning our Code
 Dev and Production Build
+Different development & production bundles
 Super Fast build algorithm
 Image Optimization
 Caching while development
@@ -17,6 +18,8 @@ HTTPS on dev
 Handels multiple port numbers
 Consistent Hashing Algorithms
 Zero config
+Error Handling
+Tree Shaking -removes unused code
 */
 
 import React from "react";
@@ -24,43 +27,30 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const list1 = React.createElement(
-  "li",
-  {
-    id: "listitem1",
-    className: "listClass",
-    style: {
-      fontSize: "25px",
-    },
-  },
-  "List Item One"
-);
-const list2 = React.createElement("li", { id: "listitem2" }, "List Item Two");
-
-const unOrderdList = React.createElement(
-  "ul",
-  {
-    id: "unorderedlist",
-    style: {
-      listStyle: "none",
-      color: "#00bb00",
-    },
-  },
-  list1,
-  list2
-);
-
-const heading = React.createElement(
+const h1 = React.createElement(
   "h1",
-  {
-    id: "heading1",
-    style: {
-      margin: "20px",
-      color: "#0000ff",
-    },
-  },
-  "Hello !!! Namaste React! 🙏",
-  unOrderdList
+  { key: "heading1" },
+  "This h1 is a ReactElement."
 );
 
-root.render(heading);
+const h2 = React.createElement(
+  "h2",
+  { key: "heading2" },
+  "This h2 is a ReactElement."
+);
+
+const h3 = React.createElement(
+  "h3",
+  { key: "heading3" },
+  "This h3 is a ReactElement."
+);
+
+const div = React.createElement(
+  "div",
+  { className: "title", key: "division" },
+  h1,
+  h2,
+  h3
+);
+
+root.render(div);
