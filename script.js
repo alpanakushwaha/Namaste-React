@@ -9,6 +9,14 @@ const h2 = (
   </h2>
 );
 
+const HeaderThree = () => {
+  return (
+    <h3 className="headerThree" key="keyThree">
+      h3 inside functional component named DividerComponent.
+    </h3>
+  );
+};
+
 const DividerComponent = () => {
   return (
     <div className="title">
@@ -16,9 +24,7 @@ const DividerComponent = () => {
         h1 inside functional component named DividerComponent.
       </h1>
       {h2}
-      <h3 className="headerThree" key="keyThree">
-        h3 inside functional component named DividerComponent.
-      </h3>
+      <HeaderThree />
     </div>
   );
 };
