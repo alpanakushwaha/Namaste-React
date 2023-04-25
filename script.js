@@ -639,25 +639,24 @@ const restaurantListObj = [
 
 // making Card Dynamic: writing JS-code(obj ie. restaurantListObj inside HTML-code RestaurantCard  )
 
-const RestaurantCard = (props) => {
-  console.log(props);
+const RestaurantCard = ({restaurant}) => {
   return (
     <div className="res-card">
       <img
         src={
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          props.restaurant?.data?.cloudinaryImageId
+          restaurant?.data?.cloudinaryImageId
         }
       />
       <div className="short-desc">
-        <h4>{props.restaurant?.data?.name}</h4>
-        <h5>{props.restaurant?.data?.cuisines.join(", ")}</h5>
-        <h5>₹{props.restaurant?.data?.costForTwo / 100} for two</h5>
-        <h6>{props.restaurant?.data?.avgRating} *</h6>
+        <h4>{restaurant?.data?.name}</h4>
+        <h5>{restaurant?.data?.cuisines.join(", ")}</h5>
+        <h5>₹{restaurant?.data?.costForTwo / 100} for two</h5>
+        <h6>{restaurant?.data?.avgRating} *</h6>
         <h6>
-          at your doorstep within {props.restaurant?.data?.deliveryTime} minutes
+          at your doorstep within {restaurant?.data?.deliveryTime} minutes
         </h6>
-        <h6>{props.restaurant?.data?.area} </h6>
+        <h6>{restaurant?.data?.area} </h6>
       </div>
     </div>
   );
