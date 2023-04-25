@@ -639,24 +639,31 @@ const restaurantListObj = [
 
 // making Card Dynamic: writing JS-code(obj ie. restaurantListObj inside HTML-code RestaurantCard  )
 
-const RestaurantCard = ({restaurant}) => {
+const RestaurantCard = ({ restaurant }) => {
+  const {
+    cloudinaryImageId,
+    name,
+    cuisines,
+    costForTwo,
+    avgRating,
+    deliveryTime,
+    area,
+  } = restaurant?.data;
   return (
     <div className="res-card">
       <img
         src={
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          restaurant?.data?.cloudinaryImageId
+          cloudinaryImageId
         }
       />
       <div className="short-desc">
-        <h4>{restaurant?.data?.name}</h4>
-        <h5>{restaurant?.data?.cuisines.join(", ")}</h5>
-        <h5>₹{restaurant?.data?.costForTwo / 100} for two</h5>
-        <h6>{restaurant?.data?.avgRating} *</h6>
-        <h6>
-          at your doorstep within {restaurant?.data?.deliveryTime} minutes
-        </h6>
-        <h6>{restaurant?.data?.area} </h6>
+        <h4>{name}</h4>
+        <h5>{cuisines.join(", ")}</h5>
+        <h5>₹{costForTwo / 100} for two</h5>
+        <h6>{avgRating} *</h6>
+        <h6>at your doorstep within {deliveryTime} minutes</h6>
+        <h6>{area} </h6>
       </div>
     </div>
   );
@@ -668,14 +675,14 @@ const Body = () => {
       <div className="RestaurantList">
         <RestaurantCard restaurant={restaurantListObj[0]} />
         <RestaurantCard restaurant={restaurantListObj[1]} />
-        <RestaurantCard
-          restaurant={restaurantListObj[21]}
+        {/* <RestaurantCard
+          restaurant={restaurantListObj?.[21]}
           secondProp="asAnExample"
-        />
+        /> */}
         <RestaurantCard restaurant={restaurantListObj[2]} />
         <RestaurantCard restaurant={restaurantListObj[3]} />
         <RestaurantCard restaurant={restaurantListObj[4]} />
-        <RestaurantCard restaurant={restaurantListObj[5]} />
+        {/* <RestaurantCard restaurant={restaurantListObj[5]} /> */}
       </div>
     </div>
   );
