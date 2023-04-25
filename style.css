@@ -13,6 +13,23 @@
   /* height: 100px; */
 }
 
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 25px;
+}
+
+ul li {
+  padding: 10px;
+  margin: 10px;
+}
+
+.navItems {
+  padding: 0px 20px;
+  margin: 30px;
+  display: flex;
+}
 
 .Search {
   padding: 10px;
