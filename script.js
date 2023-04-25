@@ -688,9 +688,9 @@ const Body = () => {
           avgRating={restaurantListObj?.[1].data.avgRating}
           area={restaurantListObj?.[1].data.area}
         />
-        <RestaurantCard restaurant={restaurantListObj[2].data} />
-        <RestaurantCard restaurant={restaurantListObj[3].data} />
-        <RestaurantCard restaurant={restaurantListObj[4].data} />
+        <RestaurantCard {...restaurantListObj[2].data} />
+        <RestaurantCard {...restaurantListObj[3].data} />
+        <RestaurantCard {...restaurantListObj[4].data} />
       </div>
     </div>
   );
