@@ -54,3 +54,30 @@ ul li {
 .user-icon{
   width: 100px;
 }
+
+.res-card {
+  width: 200px;
+  padding: 5px;
+  border: 2px solid rgb(174, 170, 170);
+  /* background-color: #2fbf9b; */
+  font-size: 10px;
+
+  margin-top: 10px;
+}
+
+.res-card > img {
+  padding: 5px;
+  width: 95%;
+  height: 100%;
+}
+
+.res-card > .short-desc {
+  background-color: #fff;
+  font-size: 20px;
+  /* height: 90%; */
+}
+
+.res-card:hover {
+  cursor: pointer;
+  border: 2px solid black;
+}

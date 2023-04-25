@@ -59,8 +59,26 @@ const Header = () => {
   );
 };
 
+const RestaurantCard = () => {
+    return (
+      <div className="res-card">
+   
+        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029858/PC_Creative%20refresh/3D_bau/banners_new/Rolls"></img>
+        <div className="short-desc">
+        <h4>Rolls</h4>
+        <h5>Fast Food, Wraps</h5>
+        <h6>4.1 *</h6>
+        </div>
+      </div>
+    );
+  };
+
 const Body = () => {
-  return <h4>Body</h4>;
+  return (
+  <div>
+    <RestaurantCard/>
+  </div>
+  )
 };
 
 const Footer = () => {
@@ -79,23 +97,4 @@ const AppLayout = () => {
   );
 };
 
-// to demonstrate INLINE -style inside JSX
-
-const text_jsx = (
-  <div style={{ color: "red" }} className="jsx_style">
-    <h2>First Header </h2>
-    <h3>Second Header</h3>
-  </div>
-);
-
-// OR
-const styleObj123 = { color: "lightgreen" };
-
-const text = (
-  <div style={styleObj123}>
-    <h2>testing style syntax</h2>
-  </div>
-);
-
-
-root.render(text_jsx);
+root.render(AppLayout());
