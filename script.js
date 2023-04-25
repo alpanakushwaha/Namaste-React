@@ -59,15 +59,24 @@ const Header = () => {
   );
 };
 
+const restaurantListObj={
+  name: "Rolls",
+  image:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029858/PC_Creative%20refresh/3D_bau/banners_new/Rolls",
+  cuisine:["Fast Food", "Wraps"],
+  rating:"4.1"
+}
+
+// making Card Dynamic: writing JS-code(obj ie. restaurantListObj inside HTML-code RestaurantCard  )
+
 const RestaurantCard = () => {
     return (
       <div className="res-card">
    
-        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029858/PC_Creative%20refresh/3D_bau/banners_new/Rolls"></img>
+        <img src={restaurantListObj.image}/>
         <div className="short-desc">
-        <h4>Rolls</h4>
-        <h5>Fast Food, Wraps</h5>
-        <h6>4.1 *</h6>
+        <h4>{restaurantListObj.name}</h4>
+        <h5>{restaurantListObj.cuisine.join(", ")}</h5>
+        <h6>{restaurantListObj.rating} *</h6>
         </div>
       </div>
     );
