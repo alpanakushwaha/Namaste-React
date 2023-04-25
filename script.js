@@ -79,4 +79,23 @@ const AppLayout = () => {
   );
 };
 
-root.render(AppLayout());
+// to demonstrate INLINE -style inside JSX
+
+const text_jsx = (
+  <div style={{ color: "red" }} className="jsx_style">
+    <h2>First Header </h2>
+    <h3>Second Header</h3>
+  </div>
+);
+
+// OR
+const styleObj123 = { color: "lightgreen" };
+
+const text = (
+  <div style={styleObj123}>
+    <h2>testing style syntax</h2>
+  </div>
+);
+
+
+root.render(text_jsx);
