@@ -639,16 +639,15 @@ const restaurantListObj = [
 
 // making Card Dynamic: writing JS-code(obj ie. restaurantListObj inside HTML-code RestaurantCard  )
 
-const RestaurantCard = ({ restaurant }) => {
-  const {
-    cloudinaryImageId,
-    name,
-    cuisines,
-    costForTwo,
-    avgRating,
-    deliveryTime,
-    area,
-  } = restaurant?.data;
+const RestaurantCard = ({
+  cloudinaryImageId,
+  name,
+  cuisines,
+  costForTwo,
+  avgRating,
+  deliveryTime,
+  area,
+}) => {
   return (
     <div className="res-card">
       <img
@@ -659,7 +658,7 @@ const RestaurantCard = ({ restaurant }) => {
       />
       <div className="short-desc">
         <h4>{name}</h4>
-        <h5>{cuisines.join(", ")}</h5>
+        <h5>{cuisines}</h5>
         <h5>₹{costForTwo / 100} for two</h5>
         <h6>{avgRating} *</h6>
         <h6>at your doorstep within {deliveryTime} minutes</h6>
@@ -673,16 +672,25 @@ const Body = () => {
   return (
     <div className="body">
       <div className="RestaurantList">
-        <RestaurantCard restaurant={restaurantListObj[0]} />
-        <RestaurantCard restaurant={restaurantListObj[1]} />
-        {/* <RestaurantCard
-          restaurant={restaurantListObj?.[21]}
-          secondProp="asAnExample"
-        /> */}
-        <RestaurantCard restaurant={restaurantListObj[2]} />
-        <RestaurantCard restaurant={restaurantListObj[3]} />
-        <RestaurantCard restaurant={restaurantListObj[4]} />
-        {/* <RestaurantCard restaurant={restaurantListObj[5]} /> */}
+        <RestaurantCard
+          cloudinaryImageId={restaurantListObj?.[0]?.data.cloudinaryImageId}
+          name={restaurantListObj?.[0]?.data.name}
+          cuisines={restaurantListObj?.[0].data.cuisines.join(", ")}
+          costForTwo={restaurantListObj?.[0].data.costForTwo}
+          avgRating={restaurantListObj?.[0].data.avgRating}
+          area={restaurantListObj?.[0].data.area}
+        />
+        <RestaurantCard
+          cloudinaryImageId={restaurantListObj?.[1]?.data.cloudinaryImageId}
+          name={restaurantListObj?.[1]?.data.name}
+          cuisines={restaurantListObj?.[1].data.cuisines.join(", ")}
+          costForTwo={restaurantListObj?.[1].data.costForTwo}
+          avgRating={restaurantListObj?.[1].data.avgRating}
+          area={restaurantListObj?.[1].data.area}
+        />
+        <RestaurantCard restaurant={restaurantListObj[2].data} />
+        <RestaurantCard restaurant={restaurantListObj[3].data} />
+        <RestaurantCard restaurant={restaurantListObj[4].data} />
       </div>
     </div>
   );
