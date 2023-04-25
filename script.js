@@ -672,25 +672,14 @@ const Body = () => {
   return (
     <div className="body">
       <div className="RestaurantList">
-        <RestaurantCard
-          cloudinaryImageId={restaurantListObj?.[0]?.data.cloudinaryImageId}
-          name={restaurantListObj?.[0]?.data.name}
-          cuisines={restaurantListObj?.[0].data.cuisines.join(", ")}
-          costForTwo={restaurantListObj?.[0].data.costForTwo}
-          avgRating={restaurantListObj?.[0].data.avgRating}
-          area={restaurantListObj?.[0].data.area}
-        />
-        <RestaurantCard
-          cloudinaryImageId={restaurantListObj?.[1]?.data.cloudinaryImageId}
-          name={restaurantListObj?.[1]?.data.name}
-          cuisines={restaurantListObj?.[1].data.cuisines.join(", ")}
-          costForTwo={restaurantListObj?.[1].data.costForTwo}
-          avgRating={restaurantListObj?.[1].data.avgRating}
-          area={restaurantListObj?.[1].data.area}
-        />
-        <RestaurantCard {...restaurantListObj[2].data} />
-        <RestaurantCard {...restaurantListObj[3].data} />
-        <RestaurantCard {...restaurantListObj[4].data} />
+        {restaurantListObj.map((restaurantListObj) => {
+          return (
+            <RestaurantCard
+              {...restaurantListObj.data}
+              key={restaurantListObj.data.id}
+            />
+          );
+        })}
       </div>
     </div>
   );
