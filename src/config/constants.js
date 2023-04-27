@@ -10,3 +10,6 @@ export const USER_ICON_URL =
 
 export const CART_ICON_URL =
   "https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png";
+
+export const CDN_IMG_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";

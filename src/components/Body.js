@@ -1,4 +1,5 @@
 import { restaurantListObj } from "../config/mockData";
+import { CDN_IMG_URL } from "../config/constants";
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
@@ -11,8 +12,8 @@ const RestaurantCard = ({
   return (
     <div className="res-card">
       <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+        src={CDN_IMG_URL
+           +
           cloudinaryImageId
         }
       />
