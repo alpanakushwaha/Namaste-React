@@ -1,4 +1,4 @@
-export const TitleLogo = () => {
+const TitleLogo = () => {
   // <h1 id="title" key="h2">
   //   Food Villa
   // </h1>
@@ -13,14 +13,14 @@ export const TitleLogo = () => {
   );
 };
 
-export const UserIcon = () => (
+const UserIcon = () => (
   <img
     className="user-icon"
     src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg "
   ></img>
 );
 
-export const CartIcon = () => (
+const CartIcon = () => (
   <a href="#">
     <img
       className="cart-icon"
@@ -32,7 +32,7 @@ export const CartIcon = () => (
   </a>
 );
 
- const NavBar = () => (
+const NavBar = () => (
   <div className="navItems">
     <ul>
       <li>Home </li>
@@ -45,7 +45,7 @@ export const CartIcon = () => (
   </div>
 );
 
-export const Header = () => {
+const Header = () => {
   return (
     <div className="header">
       <TitleLogo />
@@ -54,7 +54,4 @@ export const Header = () => {
   );
 };
 
-export default NavBar; 
-// only Default-Component can be Renamed for importing
-
-// no point in changing the name of Named-Component for importing, (that's why it is 'Named' export or import)
+export default Header;
