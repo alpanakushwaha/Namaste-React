@@ -1,4 +1,4 @@
-const TitleLogo = () => {
+export const TitleLogo = () => {
   // <h1 id="title" key="h2">
   //   Food Villa
   // </h1>
@@ -13,14 +13,14 @@ const TitleLogo = () => {
   );
 };
 
-const UserIcon = () => (
+export const UserIcon = () => (
   <img
     className="user-icon"
     src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg "
   ></img>
 );
 
-const CartIcon = () => (
+export const CartIcon = () => (
   <a href="#">
     <img
       className="cart-icon"
@@ -32,7 +32,7 @@ const CartIcon = () => (
   </a>
 );
 
-const NavBar = () => (
+export const NavBar = () => (
   <div className="navItems">
     <ul>
       <li>Home </li>
@@ -45,7 +45,7 @@ const NavBar = () => (
   </div>
 );
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className="header">
       <TitleLogo />
@@ -54,4 +54,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+// export default Header;
