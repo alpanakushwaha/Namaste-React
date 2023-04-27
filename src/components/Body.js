@@ -31,8 +31,11 @@ const Body = () => {
   let searchText = "North Indian"; // hard-coded
 
   // searchingText is a local variable
-  let [searchingText, setSearchingText] = useState(searchText); // To create state variable
+  let [searchingText, setSearchingText] = useState(searchText); // returns [var name, func() to update the variable]
 
+  const [searchClick, setSearchClick] = useState("false");
+
+  // To create state variable
   return (
     <div className="body">
       <>
@@ -50,7 +53,16 @@ const Body = () => {
           {
             searchingText // reading
           }
-          <button className="search-btn">Search</button>
+          <button
+            className="search-btn"
+            onClick={() => {
+              if (searchClick === "true") setSearchClick("false");
+              else setSearchClick("true");
+            }}
+          >
+            Search
+          </button>
+          {searchClick}
         </div>
         <div className="RestaurantList">
           {restaurantListObj.map((restaurantListObj) => {
