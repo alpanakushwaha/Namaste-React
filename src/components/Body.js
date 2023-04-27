@@ -1,5 +1,6 @@
 import restaurantListObj from "../config/mockData";
 import { CDN_IMG_URL } from "../config/constants";
+import { useState } from "react";
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
@@ -24,8 +25,14 @@ const RestaurantCard = ({
   );
 };
 
+// what is state, react-Hooks, useState?
+
 const Body = () => {
-  const searchText = "PizzaHut"; // hard-coded
+  let searchText = "North Indian"; // hard-coded
+
+  // searchingText is a local variable
+  let [searchingText, setSearchingText] = useState(searchText); // To create state variable
+
   return (
     <div className="body">
       <>
@@ -34,14 +41,15 @@ const Body = () => {
             type="text"
             className="search-input"
             placeholder="Search"
-            value={searchText} // one-way data-Binding
-            // onChange={(e)=> console.log("to show that you are trying to change the input, but can't.")}
-
+            // value={searchText} // one-way data-Binding
+            value={searchingText} // Two-way data-Binding
             onChange={(e) => {
-              searchText = e.target.value;
+              setSearchingText(e.target.value); // writing
             }}
-            // on-console, you'll see the character being pressed appended with the value
           ></input>
+          {
+            searchingText // reading
+          }
           <button className="search-btn">Search</button>
         </div>
         <div className="RestaurantList">
