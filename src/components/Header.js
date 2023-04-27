@@ -32,7 +32,7 @@ export const CartIcon = () => (
   </a>
 );
 
-export const NavBar = () => (
+ const NavBar = () => (
   <div className="navItems">
     <ul>
       <li>Home </li>
@@ -54,4 +54,7 @@ export const Header = () => {
   );
 };
 
-// export default Header;
+export default NavBar; 
+// only Default-Component can be Renamed for importing
+
+// no point in changing the name of Named-Component for importing, (that's why it is 'Named' export or import)
