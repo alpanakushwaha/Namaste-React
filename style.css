@@ -1,5 +1,5 @@
 * {
-  margin:5px;
+  margin: 5px;
   padding: 0;
 }
 
@@ -31,27 +31,13 @@ ul li {
   display: flex;
 }
 
-.Search {
-  padding: 10px;
-}
-
-.search-form{
-  padding-top: 40px;
-}
-
-
-.search-icon{
-  width: 50px;
-  height: 50px;
-}
-
-.dropDown1{
+.dropDown1 {
   font-size: 22px;
 
   padding: 0 100px;
 }
 
-.user-icon{
+.user-icon {
   width: 100px;
 }
 
@@ -87,4 +73,12 @@ ul li {
 .res-card:hover {
   cursor: pointer;
   border: 2px solid black;
+}
+
+.search-input,
+.search-filter-btn,
+.avgRating-filter-btn {
+  margin: 5px;
+  padding: 5px 15px;
+  border-radius: 20px;
 }

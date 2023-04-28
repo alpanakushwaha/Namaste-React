@@ -25,17 +25,20 @@ const RestaurantCard = ({
   );
 };
 
+function filterData(searchText, restObj) {
+  const filterData = restObj.filter((resLi) =>
+    resLi.data?.cuisines.includes(searchText)
+  );
+
+  return filterData;
+}
+
 // what is state, react-Hooks, useState?
 
 const Body = () => {
-  let searchText = "North Indian"; // hard-coded
+  let [restObj, setRestObj] = useState(restaurantListObj);
+  let [searchText, setSearchText] = useState("");
 
-  // searchingText is a local variable
-  let [searchingText, setSearchingText] = useState(searchText); // returns [var name, func() to update the variable]
-
-  const [searchClick, setSearchClick] = useState("false");
-
-  // To create state variable
   return (
     <div className="body">
       <>
@@ -44,33 +47,39 @@ const Body = () => {
             type="text"
             className="search-input"
             placeholder="Search"
-            // value={searchText} // one-way data-Binding
-            value={searchingText} // Two-way data-Binding
+            value={searchText}
             onChange={(e) => {
-              setSearchingText(e.target.value); // writing
+              setSearchText(e.target.value);
             }}
           ></input>
-          {
-            searchingText // reading
-          }
+
           <button
-            className="search-btn"
+            className="search-filter-btn"
             onClick={() => {
-              if (searchClick === "true") setSearchClick("false");
-              else setSearchClick("true");
+              const resData = filterData(searchText, restObj);
+
+              setRestObj(resData);
             }}
           >
             Search
           </button>
-          {searchClick}
+
+          <button
+            className="avgRating-filter-btn"
+            onClick={() => {
+              restObj = restObj.filter((res) => res.data?.avgRating > 4.0);
+
+              // console.log(restObj);
+              setRestObj(restObj);
+            }}
+          >
+            Top-rated Restaurants
+          </button>
         </div>
         <div className="RestaurantList">
-          {restaurantListObj.map((restaurantListObj) => {
+          {restObj.map((restaurant) => {
             return (
-              <RestaurantCard
-                {...restaurantListObj.data}
-                key={restaurantListObj.data.id}
-              />
+              <RestaurantCard {...restaurant.data} key={restaurant.data?.id} />
             );
           })}
         </div>
