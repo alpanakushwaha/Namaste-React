@@ -25,10 +25,18 @@ const RestaurantCard = ({
   );
 };
 
-function filterData(searchText, restObj) {
-  const filterData = restObj.filter((resLi) =>
-    resLi.data?.cuisines.includes(searchText)
-  );
+// function filterData(searchText, restObj) {
+//   const filterData = restObj.filter(
+//     (resLi) => resLi.data?.name.includes(searchText) // => working good
+//   );
+
+//   return filterData;
+// }
+
+  function filterData(searchText, restObj) {
+    const filterData = restObj.filter(
+      (resLi) => resLi.data?.cuisines.flatMap((x)=>x.split(" ")).join("").includes(searchText) // => working Exellent
+    );
 
   return filterData;
 }
@@ -36,9 +44,11 @@ function filterData(searchText, restObj) {
 // what is state, react-Hooks, useState?
 
 const Body = () => {
+
+  // state variables
   let [restObj, setRestObj] = useState(restaurantListObj);
   let [searchText, setSearchText] = useState("");
-
+  console.log("re-render");
   return (
     <div className="body">
       <>
@@ -49,7 +59,7 @@ const Body = () => {
             placeholder="Search"
             value={searchText}
             onChange={(e) => {
-              setSearchText(e.target.value);
+              setSearchText(e.target.value); // in-sync // reloading the whole input (re-renderinge for each key-press)
             }}
           ></input>
 
