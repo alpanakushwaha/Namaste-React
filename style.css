@@ -77,7 +77,8 @@ ul li {
 
 .search-input,
 .search-filter-btn,
-.avgRating-filter-btn {
+.avgRating-filter-btn,
+.true-false-toggle-btn {
   margin: 5px;
   padding: 5px 15px;
   border-radius: 20px;
