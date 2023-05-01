@@ -46,9 +46,9 @@ const Body = () => {
 
   useEffect(() => {
     console.log(
-      "useEffect callback() is called just once on empty [] dependency array."
+      "useEffect callback() is called after 'restaurant' latest render of dependency array."
     );
-  }, []); // called After initial render
+  }, [restObj]); // called After initial render
 
   console.log("restObj rendered."); // called Before useEffect
   return (
