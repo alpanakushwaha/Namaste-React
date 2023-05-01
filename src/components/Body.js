@@ -39,7 +39,7 @@ function filterData(searchText, restObj) {
 // what is state, react-Hooks, useState?
 
 const Body = () => {
-  let [restObj, setRestObj] = useState(restaurantListObj);
+  let [restObj, setRestObj] = useState(); //removed old data // handle the map error// using Shimmer
   let [searchText, setSearchText] = useState("");
 
   useEffect(() => {
