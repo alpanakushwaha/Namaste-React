@@ -39,16 +39,14 @@ function filterData(searchText, restObj) {
 // what is state, react-Hooks, useState?
 
 const Body = () => {
-  // state variables // needed in UI for almost everything in React => state-change
-  let [restObj, setRestObj] = useState(restaurantListObj); // local-state-variable
-  let [searchText, setSearchText] = useState(""); // local-state-variable
-  // console.log("re-render"); // renders for every small-state change
+  let [restObj, setRestObj] = useState(restaurantListObj);
+  let [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     console.log(
       "useEffect callback() is called after 'restaurant' latest render of dependency array."
     );
-  }, [restObj]); // called After initial render
+  }, [restObj]); // callback() called => once after initial render + everytime after resObj-state is changed.
 
   console.log("restObj rendered."); // called Before useEffect
   return (
