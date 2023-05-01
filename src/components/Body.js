@@ -25,21 +25,12 @@ const RestaurantCard = ({
   );
 };
 
-// function filterData(searchText, restObj) {
-//   const filterData = restObj.filter(
-//     (resLi) => resLi.data?.name.includes(searchText) // => working good
-//   );
-
-//   return filterData;
-// }
-
 function filterData(searchText, restObj) {
-  const filterData = restObj.filter(
-    (resLi) =>
-      resLi.data?.cuisines
-        .flatMap((x) => x.split(" "))
-        .join("")
-        .includes(searchText) // => working Exellent
+  const filterData = restObj.filter((resLi) =>
+    resLi.data?.cuisines
+      .flatMap((x) => x.split(" "))
+      .join("")
+      .includes(searchText)
   );
 
   return filterData;
@@ -51,7 +42,6 @@ const Body = () => {
   // state variables
   let [restObj, setRestObj] = useState(restaurantListObj);
   let [searchText, setSearchText] = useState("");
-  let [text, setText] = useState("true");
   // console.log("re-render");
   return (
     <div className="body">
@@ -66,16 +56,6 @@ const Body = () => {
               setSearchText(e.target.value); // in-sync // reloading the whole input (re-renderinge for each key-press)
             }}
           ></input>
-
-          <button
-            className="true-false-toggle-btn"
-            onClick={() => {
-              if (text == "true") setText("false");
-              else setText("true");
-            }}
-          >
-            {text}
-          </button>
 
           <button
             className="search-filter-btn"
@@ -96,9 +76,6 @@ const Body = () => {
               // console.log(restObj);
               setRestObj(restObj);
             }}
-            // onMouseOver={() => {
-            //   console.log("mouse Pointer over Top-rated Restaurants Button");
-            // }}
           >
             Top-rated Restaurants
           </button>

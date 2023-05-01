@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { REDIRECT_LINK_ON_LOGO_URL } from "../config/constants";
 import { LOGO_URL } from "../config/constants";
 import { USER_ICON_URL } from "../config/constants";
@@ -9,21 +10,12 @@ const TitleLogo = () => {
   // </h1>
   return (
     <a href={REDIRECT_LINK_ON_LOGO_URL}>
-      <img
-        className="logoImage"
-        src={LOGO_URL}
-        alt="logo"
-      />
+      <img className="logoImage" src={LOGO_URL} alt="logo" />
     </a>
   );
 };
 
-const UserIcon = () => (
-  <img
-    className="user-icon"
-    src={USER_ICON_URL}
-  ></img>
-);
+const UserIcon = () => <img className="user-icon" src={USER_ICON_URL}></img>;
 
 const CartIcon = () => (
   <a href="#">
@@ -51,9 +43,23 @@ const NavBar = () => (
 );
 
 const Header = () => {
+  const title1 = "Food Villa";
+  const title2 = "powered by Khana Khazana";
+
+  const [title, setTitle] = useState(title1);
   return (
     <div className="header">
       <TitleLogo />
+
+      <button
+        className="rest-title"
+        onClick={() => {
+          setTitle(title2);
+        }}
+      >
+        Click to see Title name change
+      </button>
+      <h2 className="h1-title-name">{title}</h2>
       <NavBar />
     </div>
   );
