@@ -45,10 +45,12 @@ const Body = () => {
   // console.log("re-render"); // renders for every small-state change
 
   useEffect(() => {
-    console.log("useEffect callback is called on every dependency change.");
-  }, [searchText]);
+    console.log(
+      "useEffect callback() is called just once on empty [] dependency array."
+    );
+  }, []); // called After initial render
 
-  console.log(restObj);
+  console.log("restObj rendered."); // called Before useEffect
   return (
     <div className="body">
       <>
