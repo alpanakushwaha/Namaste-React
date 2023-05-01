@@ -41,3 +41,5 @@
 
 => on every state change
 => on every props change
+---
+#### CORS error

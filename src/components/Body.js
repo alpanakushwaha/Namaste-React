@@ -43,12 +43,20 @@ const Body = () => {
   let [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    console.log(
-      "useEffect callback() is called after 'restaurant' latest render of dependency array."
-    );
-  }, [restObj]); // callback() called => once after initial render + everytime after resObj-state is changed.
+    // API call
+    getRestaurants();
+  }, []);
 
-  console.log("restObj rendered."); // called Before useEffect
+  async function getRestaurants() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
+    ); // initially Expected error=> CORS Error,
+    const json = await data.json();
+    console.log(json);
+    setRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
+  }
+
+  console.log("restObj rendered.");
   return (
     <div className="body">
       <>
@@ -59,7 +67,7 @@ const Body = () => {
             placeholder="Search"
             value={searchText}
             onChange={(e) => {
-              setSearchText(e.target.value); // in-sync with state-change// reloading the whole input (re-renderinge for each key-change)
+              setSearchText(e.target.value);
             }}
           ></input>
 
