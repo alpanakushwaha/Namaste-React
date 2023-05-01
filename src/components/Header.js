@@ -47,6 +47,9 @@ const Header = () => {
   const title2 = "powered by Khana Khazana";
 
   const [title, setTitle] = useState(title1);
+
+  console.log("rendered indication "); // on Changing the state, react quckly re-renders whole page again
+
   return (
     <div className="header">
       <TitleLogo />
