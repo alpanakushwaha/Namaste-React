@@ -1,6 +1,6 @@
 import restaurantListObj from "../config/mockData";
 import { CDN_IMG_URL } from "../config/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
@@ -39,10 +39,16 @@ function filterData(searchText, restObj) {
 // what is state, react-Hooks, useState?
 
 const Body = () => {
-  // state variables
-  let [restObj, setRestObj] = useState(restaurantListObj);
-  let [searchText, setSearchText] = useState("");
-  // console.log("re-render");
+  // state variables // needed in UI for almost everything in React => state-change
+  let [restObj, setRestObj] = useState(restaurantListObj); // local-state-variable
+  let [searchText, setSearchText] = useState(""); // local-state-variable
+  // console.log("re-render"); // renders for every small-state change
+
+  useEffect(() => {
+    console.log("useEffect callback is called on every dependency change.");
+  }, [searchText]);
+
+  console.log(restObj);
   return (
     <div className="body">
       <>
@@ -53,7 +59,7 @@ const Body = () => {
             placeholder="Search"
             value={searchText}
             onChange={(e) => {
-              setSearchText(e.target.value); // in-sync // reloading the whole input (re-renderinge for each key-press)
+              setSearchText(e.target.value); // in-sync with state-change// reloading the whole input (re-renderinge for each key-change)
             }}
           ></input>
 

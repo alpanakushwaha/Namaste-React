@@ -43,26 +43,9 @@ const NavBar = () => (
 );
 
 const Header = () => {
-  const title1 = "Food Villa";
-  const title2 = "powered by Khana Khazana";
-
-  const [title, setTitle] = useState(title1);
-
-  console.log("rendered indication "); // on Changing the state, react quckly re-renders whole page again
-
   return (
     <div className="header">
       <TitleLogo />
-
-      <button
-        className="rest-title"
-        onClick={() => {
-          setTitle(title2);
-        }}
-      >
-        Click to see Title name change
-      </button>
-      <h2 className="h1-title-name">{title}</h2>
       <NavBar />
     </div>
   );
