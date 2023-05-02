@@ -38,8 +38,9 @@
 ---
 
 #### when does the component renders?
-
 => on every state change
 => on every props change
 ---
-#### CORS error
+* **CORS error**
+
+* **conditional Rendering**

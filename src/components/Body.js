@@ -1,6 +1,7 @@
 import restaurantListObj from "../config/mockData";
 import { CDN_IMG_URL } from "../config/constants";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
@@ -39,7 +40,7 @@ function filterData(searchText, restObj) {
 // what is state, react-Hooks, useState?
 
 const Body = () => {
-  let [restObj, setRestObj] = useState(); //removed old data // handle the map error// using Shimmer
+  let [restObj, setRestObj] = useState([]); //removed old data // handle the map error// using Shimmer
   let [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -47,62 +48,69 @@ const Body = () => {
     getRestaurants();
   }, []);
 
+  // call happens asynchronously (can use async-await(preferred) or promises)
   async function getRestaurants() {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
-    ); // initially Expected error=> CORS Error,
-    const json = await data.json();
+    ); // calling this API-data link by fetch, and awaiting for it.
+
+    // initially Expected error=> browser blocking our local server, CORS Error,
+    const json = await data.json(); // data(readable stream) converted into json object
     console.log(json);
     setRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
   }
 
-  console.log("restObj rendered.");
-  return (
-    <div className="body">
-      <>
-        <div className="search-container">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search"
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          ></input>
+// Conditional rendering
+// if restaurant is empty (in initial rendering) => load Shimmer UI
+// if restaurant has data=> load actual data UI
 
-          <button
-            className="search-filter-btn"
-            onClick={() => {
-              const resData = filterData(searchText, restObj);
 
-              setRestObj(resData);
-            }}
-          >
-            Search
-          </button>
+  return restObj.length === 0 ? (
+    <Shimmer />
+  ) : (
+    <>
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        ></input>
 
-          <button
-            className="avgRating-filter-btn"
-            onClick={() => {
-              restObj = restObj.filter((res) => res.data?.avgRating > 4.0);
+        <button
+          className="search-filter-btn"
+          onClick={() => {
+            const resData = filterData(searchText, restObj);
 
-              // console.log(restObj);
-              setRestObj(restObj);
-            }}
-          >
-            Top-rated Restaurants
-          </button>
-        </div>
-        <div className="RestaurantList">
-          {restObj.map((restaurant) => {
-            return (
-              <RestaurantCard {...restaurant.data} key={restaurant.data?.id} />
-            );
-          })}
-        </div>
-      </>
-    </div>
+            setRestObj(resData);
+          }}
+        >
+          Search
+        </button>
+
+        <button
+          className="avgRating-filter-btn"
+          onClick={() => {
+            restObj = restObj.filter((res) => res.data?.avgRating > 4.0);
+
+            // console.log(restObj);
+            setRestObj(restObj);
+          }}
+        >
+          Top-rated Restaurants
+        </button>
+      </div>
+      <div className="RestaurantList">
+        {restObj.map((restaurant) => {
+          return (
+            <RestaurantCard {...restaurant.data} key={restaurant.data?.id} />
+          );
+        })}
+      </div>
+    </>
   );
 };
 
