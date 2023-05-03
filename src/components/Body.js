@@ -43,30 +43,31 @@ const Body = () => {
   let [filteredRestObj, setFilteredRestObj] = useState([]);
   let [searchText, setSearchText] = useState("");
 
+  // useEffect(() => {
+  //   // API call
+  //   getRestaurants();
+  // }, []);
+  //-------------------------------
   useEffect(() => {
     // API call
     getRestaurants();
-  }, []);
+  }); // no dependancy will make useEffect change after every render
+  //===============================
 
-  // call happens asynchronously (can use async-await(preferred) or promises)
   async function getRestaurants() {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
     ); // calling this API-data link by fetch, and awaiting for it.
 
-    // initially Expected error=> browser blocking our local server, CORS Error,
     const json = await data.json(); // data(readable stream) converted into json object
-    console.log(json);
+    // console.log(json);
 
     // optional Chaining
     setALLRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
     setFilteredRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
   }
 
-  // Conditional rendering
-  // if restaurant is empty (in initial rendering) => load Shimmer UI
-  // if restaurant has data=> load actual data UI
-  console.log("allResObj", allRestObj);
+  // console.log("allResObj", allRestObj);
   if (!allRestObj) return null; //early return
 
   if (filteredRestObj?.length === 0)
@@ -90,17 +91,10 @@ const Body = () => {
         <button
           className="search-filter-btn"
           onClick={() => {
-            // console.log("searchText b4 filter: ", searchText);
-            // console.log("allRestObj b4 filter", allRestObj);
             const resData = filterData(searchText, allRestObj);
 
             // if (resData.length === 0)
             //   return <h1>No restaurants available as per your Search.</h1>;
-
-            // console.log("searchText after filter:", searchText);
-            // console.log("allRestObj after filter: ", allRestObj);
-            // console.log("resData", resData);
-
             setFilteredRestObj(resData); // or (allResObj)
           }}
         >
@@ -118,15 +112,12 @@ const Body = () => {
             //   return <h1>No Restaurants available that you searched..!</h1>;
 
             setFilteredRestObj(allRestObj);
-
-            // setFilteredRestObj(filteredRestObj);
           }}
         >
           Top-rated Restaurants
         </button>
       </div>
       <div className="RestaurantList">
-        {/* {console.log("filteredRestObj: ", filteredRestObj)} */}
         {filteredRestObj.map((restaurant) => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data?.id} />

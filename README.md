@@ -38,9 +38,29 @@
 ---
 
 #### when does the component renders?
+
 => on every state change
 => on every props change
----
-* **CORS error**
 
-* **conditional Rendering**
+---
+
+- **CORS error**
+
+- **conditional Rendering**
+
+- **Diff algorithm** is present in _React_
+
+- read about hooks other than useEffect() and useState()
+
+---
+
+### Chapter 07
+
+```javascript
+ useEffect(() => {
+   API call
+   getRestaurants();
+  }); // no dependancy will make useEffect change after every render
+```
+
+- **never** create a component inside a component

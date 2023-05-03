@@ -58,15 +58,15 @@ const Header = () => {
       </button>
       <TitleLogo />
       <NavBar />
-
+      {/* important*/}
       {/* {
         let a = 10;  
         console.log(a); // not acceptable syntax
       } */}
 
-      {
+      {/* {
         ((a = 10), console.log(a)) // only expression are accepted
-      }
+      } */}
 
       {isLoggedIn ? (
         <button
