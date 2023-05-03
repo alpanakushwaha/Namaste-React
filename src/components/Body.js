@@ -31,16 +31,15 @@ function filterData(searchText, restObj) {
     resLi.data?.cuisines
       .flatMap((x) => x.split(" "))
       .join("")
-      .includes(searchText)
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
   );
 
   return filterData;
 }
 
-// what is state, react-Hooks, useState?
-
 const Body = () => {
-  let [allRestObj, setALLRestObj] = useState([]); //removed old data // handle the map error// using Shimmer
+  let [allRestObj, setALLRestObj] = useState([]);
   let [filteredRestObj, setFilteredRestObj] = useState([]);
   let [searchText, setSearchText] = useState("");
 
@@ -67,10 +66,11 @@ const Body = () => {
   // Conditional rendering
   // if restaurant is empty (in initial rendering) => load Shimmer UI
   // if restaurant has data=> load actual data UI
-  // if (!allRestObj) return null; //early return
+  console.log("allResObj", allRestObj);
+  if (!allRestObj) return null; //early return
 
-  // if (filteredRestObj?.length === 0)
-  //   return <h1>No Restaurants available that you searched..!</h1>;
+  if (filteredRestObj?.length === 0)
+    return <h1>No Restaurants available that you searched..!</h1>;
 
   return allRestObj?.length === 0 ? (
     <Shimmer />
@@ -90,9 +90,18 @@ const Body = () => {
         <button
           className="search-filter-btn"
           onClick={() => {
+            // console.log("searchText b4 filter: ", searchText);
+            // console.log("allRestObj b4 filter", allRestObj);
             const resData = filterData(searchText, allRestObj);
 
-            setFilteredRestObj(resData);
+            // if (resData.length === 0)
+            //   return <h1>No restaurants available as per your Search.</h1>;
+
+            // console.log("searchText after filter:", searchText);
+            // console.log("allRestObj after filter: ", allRestObj);
+            // console.log("resData", resData);
+
+            setFilteredRestObj(resData); // or (allResObj)
           }}
         >
           Search
@@ -101,16 +110,23 @@ const Body = () => {
         <button
           className="avgRating-filter-btn"
           onClick={() => {
-            restObj = restObj.filter((res) => res.data?.avgRating > 4.0);
+            allRestObj = allRestObj.filter((res) => res.data?.avgRating > 4.6);
 
             // console.log(restObj);
-            setRestObj(restObj);
+
+            // if (filteredRestObj?.length === 0)
+            //   return <h1>No Restaurants available that you searched..!</h1>;
+
+            setFilteredRestObj(allRestObj);
+
+            // setFilteredRestObj(filteredRestObj);
           }}
         >
           Top-rated Restaurants
         </button>
       </div>
       <div className="RestaurantList">
+        {/* {console.log("filteredRestObj: ", filteredRestObj)} */}
         {filteredRestObj.map((restaurant) => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data?.id} />

@@ -90,3 +90,10 @@ ul li {
   padding: 5px 15px;
   border-radius: 20px;
 }
+.title-btn,
+.login-btn,
+.logout-btn {
+  margin: 20px 10px;
+  padding: 10px 10px;
+  border-radius: 20px;
+}
