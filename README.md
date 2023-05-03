@@ -63,4 +63,16 @@
   }); // no dependancy will make useEffect change after every render
 ```
 
-- **never** create a component inside a component
+- **never** create a component inside a component body
+  because, the component inside will be **created everytime** the outer component is rendered ( like in _for-loop_)
+
+---
+
+```javascript
+// never do this
+if (true) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+}
+```
+
+because, react won't know the presence of searchText, that will lead to in-consistency.

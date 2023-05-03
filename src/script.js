@@ -6,18 +6,14 @@ import Footer from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
 const AppLayout = () => {
   return (
     <>
       <Header />
-      {word}
       <Body />
       <Footer />
     </>
   );
 };
-
-const word="variable constant"
 
 root.render(AppLayout());

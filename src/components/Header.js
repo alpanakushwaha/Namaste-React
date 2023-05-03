@@ -45,8 +45,11 @@ const NavBar = () => (
 const Header = () => {
   let [title, setTitle] = useState("Food Villa");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  if(true){
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  }
 
+  
   return (
     <div className="header">
       <h2>{title}</h2>
