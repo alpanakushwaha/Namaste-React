@@ -40,7 +40,8 @@ function filterData(searchText, restObj) {
 // what is state, react-Hooks, useState?
 
 const Body = () => {
-  let [restObj, setRestObj] = useState([]); //removed old data // handle the map error// using Shimmer
+  let [allRestObj, setALLRestObj] = useState([]); //removed old data // handle the map error// using Shimmer
+  let [filteredRestObj, setFilteredRestObj] = useState([]);
   let [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -57,15 +58,21 @@ const Body = () => {
     // initially Expected error=> browser blocking our local server, CORS Error,
     const json = await data.json(); // data(readable stream) converted into json object
     console.log(json);
-    setRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
+
+    // optional Chaining
+    setALLRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
+    setFilteredRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
   }
 
-// Conditional rendering
-// if restaurant is empty (in initial rendering) => load Shimmer UI
-// if restaurant has data=> load actual data UI
+  // Conditional rendering
+  // if restaurant is empty (in initial rendering) => load Shimmer UI
+  // if restaurant has data=> load actual data UI
+  // if (!allRestObj) return null; //early return
 
+  // if (filteredRestObj?.length === 0)
+  //   return <h1>No Restaurants available that you searched..!</h1>;
 
-  return restObj.length === 0 ? (
+  return allRestObj?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -83,9 +90,9 @@ const Body = () => {
         <button
           className="search-filter-btn"
           onClick={() => {
-            const resData = filterData(searchText, restObj);
+            const resData = filterData(searchText, allRestObj);
 
-            setRestObj(resData);
+            setFilteredRestObj(resData);
           }}
         >
           Search
@@ -104,7 +111,7 @@ const Body = () => {
         </button>
       </div>
       <div className="RestaurantList">
-        {restObj.map((restaurant) => {
+        {filteredRestObj.map((restaurant) => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data?.id} />
           );

@@ -11,10 +11,13 @@ const AppLayout = () => {
   return (
     <>
       <Header />
+      {word}
       <Body />
       <Footer />
     </>
   );
 };
+
+const word="variable constant"
 
 root.render(AppLayout());
