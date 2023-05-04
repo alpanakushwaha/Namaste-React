@@ -207,4 +207,21 @@ import { useRouteError } from "react-router-dom";
 
 > > _client-side-routing_: a webpage loads without any network-call, as components are in local server.
 
->> to **avoid reloading**, react-router-dom gives **Link**
+> > to **avoid reloading**, react-router-dom gives **Link**
+
+```javascript
+import { Link } from "react-router-dom";
+
+<Link to="/about" className="about_page">
+  <li>About </li>
+</Link>;
+```
+
+- who developed the link tag?
+  "Remix developers"
+
+* React-router-dom is keeping track of all the links.
+* Link component is converted to anchor-tag which is understood by browser.
+* ---
+* **Nested -Routing**
+*

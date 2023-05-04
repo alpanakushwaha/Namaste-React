@@ -3,7 +3,7 @@ import { REDIRECT_LINK_ON_LOGO_URL } from "../config/constants";
 import LOGO_URL from "../assets/images/restaurant-logo-design.avif";
 import { USER_ICON_URL } from "../config/constants";
 import { CART_ICON_URL } from "../config/constants";
-
+import { Link } from "react-router-dom";
 
 const TitleLogo = () => {
   // <h1 id="title" key="h2">
@@ -33,13 +33,17 @@ const CartIcon = () => (
 const NavBar = () => (
   <div className="navItems">
     <ul>
-      <li>Home </li>
+      <Link to="/" className="home_page">
+        <li>Home </li>
+      </Link>
 
-      <a href="/about" className="about_page">
+      <Link to="/about" className="about_page">
         <li>About </li>
-      </a>
+      </Link>
 
-      <li>Contact</li>
+      <Link to="/contact" className="contact_page">
+        <li>Contact </li>
+      </Link>
     </ul>
 
     <UserIcon />

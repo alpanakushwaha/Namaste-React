@@ -116,7 +116,9 @@ ul li {
   margin-top: 10px;
 }
 
-.about_page {
+.home_page,
+.about_page,
+.contact_page {
   text-decoration: none;
   margin: 0;
   padding: 0;
