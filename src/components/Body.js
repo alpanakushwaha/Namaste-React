@@ -43,16 +43,10 @@ const Body = () => {
   let [filteredRestObj, setFilteredRestObj] = useState([]);
   let [searchText, setSearchText] = useState("");
 
-  // useEffect(() => {
-  //   // API call
-  //   getRestaurants();
-  // }, []);
-  //-------------------------------
   useEffect(() => {
     // API call
     getRestaurants();
-  }); // no dependancy will make useEffect change after every render
-  //===============================
+  }, []);
 
   async function getRestaurants() {
     const data = await fetch(
@@ -67,11 +61,10 @@ const Body = () => {
     setFilteredRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
   }
 
-  // console.log("allResObj", allRestObj);
   if (!allRestObj) return null; //early return
 
-  if (filteredRestObj?.length === 0)
-    return <h1>No Restaurants available that you searched..!</h1>;
+  // if (filteredRestObj?.length === 0)
+  //   return <h1>No Restaurants available that you searched..!</h1>;
 
   return allRestObj?.length === 0 ? (
     <Shimmer />

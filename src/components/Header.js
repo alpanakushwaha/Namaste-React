@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { REDIRECT_LINK_ON_LOGO_URL } from "../config/constants";
-import { LOGO_URL } from "../config/constants";
+import LOGO_URL from "../assets/images/restaurant-logo-design.avif";
 import { USER_ICON_URL } from "../config/constants";
 import { CART_ICON_URL } from "../config/constants";
 
@@ -45,31 +45,12 @@ const NavBar = () => (
 const Header = () => {
   let [title, setTitle] = useState("Food Villa");
 
-  if(true){
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  
   return (
     <div className="header">
-      <h2>{title}</h2>
-      <button
-        className="title-btn"
-        onClick={() => setTitle("Changed Restaurant tilte")}
-      >
-        Change Title
-      </button>
       <TitleLogo />
       <NavBar />
-      {/* important*/}
-      {/* {
-        let a = 10;  
-        console.log(a); // not acceptable syntax
-      } */}
-
-      {/* {
-        ((a = 10), console.log(a)) // only expression are accepted
-      } */}
 
       {isLoggedIn ? (
         <button

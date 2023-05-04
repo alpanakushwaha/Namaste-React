@@ -75,4 +75,29 @@ if (true) {
 }
 ```
 
-because, react won't know the presence of searchText, that will lead to in-consistency.
+because, react won't know the presence of searchText, that will lead to **in-consistency**.
+
+---
+
+```javascript
+// never do this
+for (initialisation, condition..., increment) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+}
+```
+
+because, then creates a lot of searchText, that will lead to **in-consistency**.
+
+---
+
+- **never** use useState to create a local state variable outside the functional component.
+  => always create state variable using useState within a functional component.
+
+---
+
+- allowed to create any number of useEffects
+
+- why is CDN a great place to host the imagaes
+  => the images are already optimised when loaded to CDN
+
+---

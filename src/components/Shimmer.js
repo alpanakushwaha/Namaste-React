@@ -1,5 +1,27 @@
+const ShimmerCard = () => <div className="shimmer-card"></div>;
+
 const Shimmer = () => {
-  return <h1> Shimmer UI loading...</h1>;
+  return (
+    <>
+      <div className="shimmer-container">
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+        <ShimmerCard />
+      </div>
+    </>
+  );
 };
 
 export default Shimmer;
