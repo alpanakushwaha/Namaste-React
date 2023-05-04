@@ -4,6 +4,7 @@ import LOGO_URL from "../assets/images/restaurant-logo-design.avif";
 import { USER_ICON_URL } from "../config/constants";
 import { CART_ICON_URL } from "../config/constants";
 
+
 const TitleLogo = () => {
   // <h1 id="title" key="h2">
   //   Food Villa
@@ -33,7 +34,11 @@ const NavBar = () => (
   <div className="navItems">
     <ul>
       <li>Home </li>
-      <li>About Us</li>
+
+      <a href="/about" className="about_page">
+        <li>About </li>
+      </a>
+
       <li>Contact</li>
     </ul>
 

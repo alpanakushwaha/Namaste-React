@@ -20,8 +20,8 @@ ul {
 }
 
 ul li {
-  padding: 10px;
-  margin: 10px;
+  padding: 20px 10px 0px 10px;
+  margin: 0px;
 }
 
 .navItems {
@@ -114,4 +114,10 @@ ul li {
   align-items: center;
   /* border: 2px solid rgb(174, 170, 170); */
   margin-top: 10px;
+}
+
+.about_page {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }

@@ -185,14 +185,26 @@ root.render(<RouterProvider router={appRouter} />);
 
 ---
 
-- created an Error Component,
+- created an Error Component, to read error, as a message in dev-console
 
 ```javascript
 errorElement: <Error />;
 ```
 
-- now, a hook named useRouteError
+- now, a hook named **useRouteError**
 
 ```javascript
 import { useRouteError } from "react-router-dom";
 ```
+
+- using anchor tag has a problem, that it **refreshes the whole page** when we click on the text or image applied having the anchor tag. **_This is undesirable_**
+-
+
+* therefore, we have a concept of **Single Page Configuration** (SPA), that does not reloads(does not makes network-call) for each change in UI.
+  => example: (_without SPA_) from home to about page, fetch is done, after making a network-call
+
+* _Two types of routing_ : 1. **client side routing** 2. **server-side-routing** => web-pages coming from server
+
+> > _client-side-routing_: a webpage loads without any network-call, as components are in local server.
+
+>> to **avoid reloading**, react-router-dom gives **Link**
