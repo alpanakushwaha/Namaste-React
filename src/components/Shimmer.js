@@ -4,21 +4,11 @@ const Shimmer = () => {
   return (
     <>
       <div className="shimmer-container">
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
-        <ShimmerCard />
+        {Array(15)
+          .fill("")
+          .map((e, index) => (
+            <ShimmerCard key={index} />
+          ))}
       </div>
     </>
   );
