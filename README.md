@@ -100,4 +100,99 @@ because, then creates a lot of searchText, that will lead to **in-consistency**.
 - why is CDN a great place to host the imagaes
   => the images are already optimised when loaded to CDN
 
+- created Shimmer
+
 ---
+
+##### Formik
+
+- install react-router-dom
+
+* About.js component file created, (shortcut key=> rafce)
+  - write the code within
+
+to go to => http://localhost:1234/about => should take me to About page
+
+```javascript
+import { createBrowserRouter } from "react-router-dom";
+```
+
+the above statement helps us to create routing.
+
+```javascript
+const approuter = createBrowserRouter([
+  {
+    // creating routing configuration
+    // has list of paths
+  },
+]);
+```
+
+=>> wrong order
+
+```javascript
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+]);
+// this order, i.e, appRouter before Applayout will give Hoisting Error
+const AppLayout = () => {
+  return (
+    <>
+      <Header />
+      <Body />
+      <Footer />
+    </>
+  );
+};
+```
+
+> > correct way: as shown below
+
+```javascript
+const AppLayout = () => {
+  return (
+    <>
+      <Header />
+      <Body />
+      <Footer />
+    </>
+  );
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+]);
+```
+
+=> RouterProvider imported
+
+- rendering should happen according to path, not a spacific js file like script.js,
+- so,
+
+```javascript
+root.render(<RouterProvider router={appRouter} />);
+```
+
+- now if you search **http://localhost:1234/about**, this will go to about page.
+
+- **http://localhost:1234/xyz** will show an Unexpected Application Error! 404 Not Found ..... (a good UI for showing error , great User experience)
+
+---
+
+- created an Error Component,
+
+```javascript
+errorElement: <Error />;
+```
+
+- now, a hook named useRouteError
+
+```javascript
+import { useRouteError } from "react-router-dom";
+```
