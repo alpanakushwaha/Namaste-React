@@ -224,4 +224,23 @@ import { Link } from "react-router-dom";
 * Link component is converted to anchor-tag which is understood by browser.
 * ---
 * **Nested -Routing**
-*
+  > > example: to make the About Component between Header and Footer component
+  > > using, **Outlet** that renders according to the config.
+  - _Outlet_ is a component
+    > > acc. to route, all the children components will go to Outlet
+
+```javascript
+<>
+  <Header />
+  {/*{Outlet}*/}
+  <Outlet />
+  <Footer />
+</>;
+
+children: [
+  {
+    path: "/",
+    element: <Body />,
+  },
+];
+```

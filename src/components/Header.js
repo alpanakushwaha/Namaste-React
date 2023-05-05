@@ -44,6 +44,7 @@ const NavBar = () => (
       <Link to="/contact" className="contact_page">
         <li>Contact </li>
       </Link>
+      {/* <li>Cart</li> */}
     </ul>
 
     <UserIcon />

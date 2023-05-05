@@ -54,7 +54,7 @@ const Body = () => {
     ); // calling this API-data link by fetch, and awaiting for it.
 
     const json = await data.json(); // data(readable stream) converted into json object
-    // console.log("json object: ", json.data);
+    console.log("json object: ", json.data);
 
     // optional Chaining
     setALLRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
