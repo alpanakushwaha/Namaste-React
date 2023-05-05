@@ -244,3 +244,18 @@ children: [
   },
 ];
 ```
+
+---
+
+#### Dynamic Routing
+
+- When we say dynamic routing, we mean routing that takes place as your app is rendering, not in a configuration or convention outside of a running app. That means almost everything is a component in React Router.
+
+---
+
+> > RestaurantMenu.js Added
+
+- with for extension **http://localhost:1234/restaurant/anyID**
+
+* Now, we want to _read_ the ID of this restaurant menu.
+* can read the ID by using **useParams** Hook
