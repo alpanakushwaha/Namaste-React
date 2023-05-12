@@ -104,9 +104,10 @@ because, then creates a lot of searchText, that will lead to **in-consistency**.
 
 ---
 
-##### Formik
+##### Formik (pkg(a library) to make /build forms without tears........)
+---
 
-- install react-router-dom
+- installed react-router-dom (**npm i react-router-dom**)
 
 * About.js component file created, (shortcut key=> rafce)
   - write the code within
@@ -176,7 +177,7 @@ const appRouter = createBrowserRouter([
 - so,
 
 ```javascript
-root.render(<RouterProvider router={appRouter} />);
+root.render(<RouterProvider router={appRouter} />); // router is props
 ```
 
 - now if you search **http://localhost:1234/about**, this will go to about page.
@@ -259,3 +260,12 @@ children: [
 
 * Now, we want to _read_ the ID of this restaurant menu.
 * can read the ID by using **useParams** Hook
+
+```javascript
+{
+        path: "/restaurant/:id", // :id or :anyKeyThing
+        element: <RestaurantMenu />,
+      }
+```
+
+- using useParams hook, we can **read any dynamic URL**

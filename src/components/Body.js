@@ -1,5 +1,6 @@
 import restaurantListObj from "../config/mockData";
 import { CDN_IMG_URL } from "../config/constants";
+import { RESTAURANT_LIST_URL } from "../config/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 const RestaurantCard = ({
@@ -40,7 +41,7 @@ function filterData(searchText, restObj) {
 
 const Body = () => {
   let [allRestObj, setALLRestObj] = useState([]);
-  let [filteredRestObj, setFilteredRestObj] = useState([]);
+  let [filteredRestObj, setFilteredRestObj] = useState();
   let [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -49,22 +50,20 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
-    ); // calling this API-data link by fetch, and awaiting for it.
+    const data = await fetch(RESTAURANT_LIST_URL);
 
-    const json = await data.json(); // data(readable stream) converted into json object
-    console.log("json object: ", json.data);
+    const json = await data.json();
+    // console.log("json object calledBack from UseEffect: ", json.data);
 
-    // optional Chaining
     setALLRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
     setFilteredRestObj(json?.data?.cards?.[2]?.data?.data?.cards);
   }
 
-  if (!allRestObj) return null; //early return
+  if (!allRestObj) return null;
 
-  // if (filteredRestObj?.length === 0)
-  //   return <h1>No Restaurants available that you searched..!</h1>;
+  if (filteredRestObj?.length === 0) {
+    return <h1>No Restaurants available that you searched for..!</h1>;
+  }
 
   return allRestObj?.length === 0 ? (
     <Shimmer />
@@ -84,11 +83,15 @@ const Body = () => {
         <button
           className="search-filter-btn"
           onClick={() => {
+            console.log("allRestData b4 filter: ", allRestObj);
+
             const resData = filterData(searchText, allRestObj);
 
-            // if (resData.length === 0)
-            //   return <h1>No restaurants available as per your Search.</h1>;
-            setFilteredRestObj(resData); // or (allResObj)
+            console.log("resData after filter: ", resData);
+
+            if (resData.length === 0)
+              return <h1>No restaurants available as per your Search.</h1>;
+            setFilteredRestObj(resData); // or (allRestObj)
           }}
         >
           Search
@@ -97,9 +100,10 @@ const Body = () => {
         <button
           className="avgRating-filter-btn"
           onClick={() => {
-            allRestObj = allRestObj.filter((res) => res.data?.avgRating > 4.6);
+            console.log("allRestObj b4 filter: ", allRestObj);
+            allRestObj = allRestObj.filter((res) => res.data?.avgRating > 4.8);
 
-            // console.log(restObj);
+            console.log("allRestObj after filter: ", allRestObj);
 
             // if (filteredRestObj?.length === 0)
             //   return <h1>No Restaurants available that you searched..!</h1>;

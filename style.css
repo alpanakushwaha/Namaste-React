@@ -123,3 +123,39 @@ ul li {
   margin: 0;
   padding: 0;
 }
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  border: 2px solid orange;
+
+}
+
+.restaurantInfo {
+  border: 2px solid black;
+  
+}
+
+
+.restMenuID{
+  font-size: 20px;
+
+}
+
+.restaurantMenu {
+  border: 2px solid red;
+ 
+}
+
+.restaurantMenu > ul{
+  list-style-type:circle;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.mainRestImgForMenu{
+  width: 300px;
+}
