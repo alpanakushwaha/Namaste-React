@@ -101,7 +101,7 @@ const Body = () => {
           className="avgRating-filter-btn"
           onClick={() => {
             console.log("allRestObj b4 filter: ", allRestObj);
-            allRestObj = allRestObj.filter((res) => res.data?.avgRating > 4.8);
+            allRestObj = allRestObj.filter((res) => res.data?.avgRating > 4.0);
 
             console.log("allRestObj after filter: ", allRestObj);
 
