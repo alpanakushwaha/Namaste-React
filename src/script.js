@@ -12,7 +12,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const AppLayout = () => {
+const AppLayout = () => { // wrapper component?
   return (
     <>
       <Header />
@@ -21,7 +21,7 @@ const AppLayout = () => {
     </>
   );
 };
-const appRouter = createBrowserRouter([
+const appRouter = createBrowserRouter([  // wrapper component?
   {
     path: "/",
     element: <AppLayout />,

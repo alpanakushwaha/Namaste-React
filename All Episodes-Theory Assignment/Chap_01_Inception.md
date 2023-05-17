@@ -95,8 +95,19 @@ Changing a component will re-render the particular component, not the whole webs
 ---
 ### What is async and defer?
 
-* **Async** in script tag is a way to load and execute the script file asynchronously.
-in this case, the script file is loaded and executed first, blocking the parsing of HTML file.
+* **Async** is a boolean attribute in script tag, which is a way to load and execute the script file asynchronously.
+* _Firstly_ the browser starts _HTML parsing_.
+* when browser _encounters async-script tag_, the _script starts loading simultaneously_. during script loading, the HTML file continues parsing.
+* after script file is loaded, the _script file starts executing_, during this time the _HTML parsing is halted_.
+* _HTML parsing continues_ after the execution of async-script
+* ![async_script.png](../src/assets/async_script.png)
 
-* **Defer** in script tag is a way to parse the HTML file first before the execution of the script file. in this case, the script file is loaded simultaneously with parsing of HTML file. The script file gets loaded and waits for HTMl file to finish parsing.
+* **Defer** is another boolean attribute in script tag, that is a way to parse the HTML file first before the execution of the script file. The script file gets loaded and waits for HTMl file to finish parsing, and only after this, the script file executes.
 
+* **Normally**, i.e; without async or defer, 
+* the browser starts HTML parsing.
+* when encounters script file, the _HTML parsing stops during the script file loading and execution time_.
+* after script file execution, the HTML parsing continues.
+
+* **Dynamic Scripts** are by-default async in nature.
+* they are made to work as defer after making the async as false by **script.async=false**
