@@ -100,7 +100,7 @@ Changing a component will re-render the particular component, not the whole webs
 * when browser _encounters async-script tag_, the _script starts loading simultaneously_. during script loading, the HTML file continues parsing.
 * after script file is loaded, the _script file starts executing_, during this time the _HTML parsing is halted_.
 * _HTML parsing continues_ after the execution of async-script
-* ![async_script.png](../src/assets/async_script.png)
+* ![normal_execution.png](../src/assets/normal_execution.png)
 
 * **Defer** is another boolean attribute in script tag, that is a way to parse the HTML file first before the execution of the script file. The script file gets loaded and waits for HTMl file to finish parsing, and only after this, the script file executes.
 
