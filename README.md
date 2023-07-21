@@ -14,7 +14,7 @@
   > > had to deploy whole project for single change.
 
 - Microservices
-  > > 1 company, 1 project divided into 100's of microservices (like mini-project ot sub-project => apps)
+  > > 1 company, 1 project divided into 100's of microservices (like mini-project to sub-project => apps)
   > > seperate sub-project for each kind of functionality (responsibility), like, UI, database , back-end, notification, messages etc..
   > > **Seperation of Concern** => single responsibility
 
@@ -64,7 +64,7 @@
 ```
 
 - **never** create a component inside a component body
-  because, the component inside will be **created everytime** the outer component is rendered ( like in _for-loop_)
+  because, the component inside will be **created everytime** the outer component is rendered ( like in _for-loop within a for-loop_)
 
 ---
 
@@ -105,6 +105,7 @@ because, then creates a lot of searchText, that will lead to **in-consistency**.
 ---
 
 ##### Formik (pkg(a library) to make /build forms without tears........)
+
 ---
 
 - installed react-router-dom (**npm i react-router-dom**)

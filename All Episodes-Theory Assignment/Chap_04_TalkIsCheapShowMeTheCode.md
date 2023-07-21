@@ -32,8 +32,9 @@ _will add on more info Soon..._
 ---
 
 ### How can I write comments in JSX?
-# very very Important question (my God)
 - same as that of in a JavaScript file.
+### How can I write multi-line comments in JSX?
+- sstart and end of comment in different lines that of actual commenet content.
 
 ```Javascript
 const comment =()=>
