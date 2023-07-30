@@ -270,3 +270,4 @@ children: [
 ```
 
 - using useParams hook, we can **read any dynamic URL**
+* edited...
