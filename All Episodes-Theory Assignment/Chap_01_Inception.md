@@ -146,6 +146,7 @@ Framework:
 
 - **Async** is a boolean attribute in script tag, which is a way to load and execute the script file asynchronously.
 - ![image of async_script_execution](../src/assets/async_script_execution.png)
+- ![image of async_script_execution](async_script_execution.png)
 
 -
 - _Firstly_ the browser starts _HTML parsing_.
