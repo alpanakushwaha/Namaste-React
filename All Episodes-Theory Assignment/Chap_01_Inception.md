@@ -145,7 +145,8 @@ Framework:
 ### What is async and defer?
 
 - **Async** is a boolean attribute in script tag, which is a way to load and execute the script file asynchronously.
-- ![image of async_script_execution](/src/assets/async_script_execution.png)
+- ![image of async_script_execution](../src/assets/async_script_execution.png)
+
 -
 - _Firstly_ the browser starts _HTML parsing_.
 - when browser _encounters async-script tag_, the _script starts loading simultaneously_. during script loading, the HTML file continues parsing.
@@ -153,12 +154,12 @@ Framework:
 - _HTML parsing continues_ after the execution of async-script
 
 - **Defer** is another boolean attribute in script tag,
-- ![image of defer_script_execution.png](/src/assets/defer_script_execution.png)
+- ![image of defer_script_execution.png](../src/assets/defer_script_execution.png)
 -
 - that is a way to parse the HTML file first before the execution of the script file. The script file gets loaded and waits for HTMl file to finish parsing, and only after this, the script file executes.
 
 - **Normally**,
-- ![image of normal_execution.png](/src/assets/normal_execution.png)
+- ![image of normal_execution.png](../src/assets/normal_execution.png)
 -
 - i.e; without async or defer,
 - the browser starts HTML parsing.
