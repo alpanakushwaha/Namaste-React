@@ -184,9 +184,29 @@ Framework:
 
 #### react basics
 
-### Assignment
+### Coding Assignment
 
 ##### Q1.
+
+- helloWorld in HTML
+
+```html
+<body>
+  <h2>Hello World</h2>
+</body>
+```
+
+---
+
+- helloWorld in Javascript
+
+```html
+<body>
+  <div id="root"></div>
+
+  <script src="script.js"></script>
+</body>
+```
 
 ```javascript
 const heading = document.createElement("h1");
@@ -194,9 +214,13 @@ heading.innerHTML = "Namaste to Everybody from Javascript. ";
 const rootElement = document.getElementById("root");
 // rootElement.append(heading);
 rootElement.appendChild(heading);
+```
+---
+- helloWorld in React
 
-//------------------------------------------------
+  ==> add CDN links in HTML page
 
+```javascript
 const parent = React.createElement(
   "div",
   { anyAttribute: "any-value", anyProp: "valuey346594865", id: "parent" },
@@ -217,4 +241,5 @@ const parent = React.createElement(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
+
 ```
