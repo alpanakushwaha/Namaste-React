@@ -9,7 +9,8 @@
 - emmet is a toolkit to write code using abbrevations for languages such as HTML, XML and CSS, PHP etc .
 - the user needs to know a bunch of shortcuts keys to get the expansion of the shortcut text
 
-  - example 1: typing '!' will give the HTML boiler plate
+  - typing **'!'** will give the HTML boiler plate
+  - typing **'html:5'** will also display the HTML boiler plate
 
 - example 2:
 
@@ -27,6 +28,38 @@ will expand as
 ```
 
 ---
+
+- Element.append() v/s Element.appendChild()
+  _append()_
+  => append() allows you to append **string objects along with NODE objects**,
+  => append() _does not returns_ any onject.
+  => appends several nodes and strings
+
+  _appendChild()_
+  => appendChild() allows you to append only **NODE** objects,
+  => appendChild() also _returns_ the node object.
+  => appends only one node
+
+---
+
+###### most costly operation in internet?
+
+=> manipulating DOM, that changes the nodes in DOM-tree
+
+- What is React.createElement()
+  ==> creates an object,
+
+#### what is render()
+
+takes the object(element), converts this object as html-tag , converts the specified 'h1' tag and puts up on DOM
+
+- what is a react-Element
+  => _react-element_ is **JavaScript Object**
+  => ReactElement(Object) => HTML (that Browser understands)
+
+* **_Order of the code (i.e. order of script -tag, CDN links, heading, tags etc. ) MATTERS!!!!!!!_**
+
+* root.render() => replaces the code written in HTML root-element with the attached script's(React code)that renders inside Root-element only
 
 ### What is the difference between library and framework?
 
@@ -69,7 +102,7 @@ Framework:
 
 ### Why is React known as React?
 
-- React is one of many libraries and it’s completely frontend and specializes in things that the user interacts with when they’re using a website like mouse clicking, submitting and typing.
+- React (**core of react, react framework algorithm**) is one of many libraries and it’s completely frontend and specializes in things that the user interacts with when they’re using a website like mouse clicking, submitting and typing.
 - while using React, the website is divided into smaller **components** like header, title, images, texts, footer etc.
   Changing a component will re-render the particular component, not the whole website.
 - **JSX** allows to build components using properties which makes it possible to insert custom data into the components.
@@ -79,7 +112,7 @@ Framework:
 
   ***
 
-### What is crossorigin in Script tag?
+### What is cross-origin in Script tag?
 
 - crossOrigin is an HTML attribute that sets the mode of the request of resources (images, audio, video, scripts, fonts etc.) and provides support for CORS.
 - CORS is used to manage cross-origin requests.
@@ -92,7 +125,9 @@ Framework:
 ### What is the difference between react and reactDOM. Also why both are available over CDN link?
 
 - **React** library has react source for creating components, state, props.
-- **ReactDOM** library is responsible to actually render UI in the browser i.e. mounting the application to the index.html file with ReactDOM.render().
+- **ReactDOM** (used for _DOM operations_ i.e. _manipulating the DOM_)
+  => ReactDOM library is responsible to actually render UI in the browser i.e. mounting the application to the index.html file with ReactDOM.render().
+  - **_acts as a bridge between React and Browser(DOM)_**
 - The reason React and ReactDOM were split into two libraries was due to the arrival of React Native.
 - **React contains functionality utilised in web and mobile apps. ReactDOM functionality is utilised only in web apps.**
 
@@ -132,3 +167,54 @@ Framework:
 
 - **Dynamic Scripts** are by-default async in nature.
 - they are made to work as defer after making the async as false by **script.async=false**
+
+---
+
+#### code to check by your own in "browser console" (not in VSCode) (not to be included in git-code)
+
+```javascript
+// window.document
+//React
+//ReactDOM
+//unpkg.com/react@18/umd/react.development.js
+//unpkg.com/react-dom@18/umd/react-dom.development.js
+// heading.innerHTML = "Namaste to Everybody from Javascript. ";
+// React.createElement()
+```
+
+#### react basics
+
+### Assignment
+
+##### Q1.
+
+```javascript
+const heading = document.createElement("h1");
+heading.innerHTML = "Namaste to Everybody from Javascript. ";
+const rootElement = document.getElementById("root");
+// rootElement.append(heading);
+rootElement.appendChild(heading);
+
+//------------------------------------------------
+
+const parent = React.createElement(
+  "div",
+  { anyAttribute: "any-value", anyProp: "valuey346594865", id: "parent" },
+[
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement("h2", {}, "h2 tag"),
+    React.createElement("h5", {}, "h5 tag")
+  )
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement("h2", {}, "h2 tag"),
+    React.createElement("h5", {}, "h5 tag")
+  )]
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
+```
