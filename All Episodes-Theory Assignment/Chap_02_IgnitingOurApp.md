@@ -91,7 +91,7 @@ some of the Superpowers/ Responsibilities of Parcel 'the BUNDLER' are:
 * File watchers: written in C++
 * ---
 
-### Read about: ^ - caret and ~ - tilda
+### Read about: ^ - caret and ~ - tilde
 
 - ~ (tilde) => allows minor version changes
   eg: ~1.4.2 will allow 1.4.2, 1.4.3, 1.4.4... till 1.4.9 only
@@ -129,7 +129,7 @@ some of the Superpowers/ Responsibilities of Parcel 'the BUNDLER' are:
 
 ### What is '**node_modules**'? Is it good idea to push that on git?
 
-- temporary folder
+- temporary folder that can be regenerated using npm init
 
 * is a collection of dependencies
 * has data of dependencies
@@ -144,7 +144,7 @@ some of the Superpowers/ Responsibilities of Parcel 'the BUNDLER' are:
   Since node-modules can be regenerated using package.json and package-lock.json, it should NOT be put in git.
   => node-modules has to be in .igitignore file
 
-  ## => package.json and package-lock.json will be created using **_npm install_**
+  ## => package.json and package-lock.json will be created using **_npm init_**
 
 ###### Transitive dependencies
 
